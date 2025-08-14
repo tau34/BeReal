@@ -344,6 +344,9 @@ export default function App() {
     if (stock && id1 === stock.id) {
       setStock(null);
     }
+    if (stock && opCard.id === stock.id) {
+      setStock(null);
+    }
     resetSelections();
     drawNextBatch();
   }
@@ -417,7 +420,10 @@ export default function App() {
           <div className="flex gap-4 items-center">
             <button
               className="px-3 py-2 bg-blue-600 text-white rounded shadow"
-              onClick={drawNextBatch}
+              onClick={() => {
+                drawNextBatch();
+                setMoves((m) => m + 1);
+              }}
             >
               Draw next 8 cards
             </button>
